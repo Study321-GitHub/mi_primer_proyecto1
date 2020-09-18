@@ -20,6 +20,8 @@ from cap5_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('insertar', views.insert),
+    path('insertar', views.insert),
+    path('insertar', views.insert),
     path('consultar', views.consultar),
     path('borrar', views.borrar),
 ]
