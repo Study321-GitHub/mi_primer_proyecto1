@@ -90,8 +90,9 @@ def borrar(request):
                             user="capitulo_4_user",
                             password="patata")
     cursor = conn.cursor()
-    cursor.execute("delete * from emp")
-    return  HttpResponse()
+    cursor.execute("delete from emp")
+    conn.commit()
+    return  HttpResponse("borrado")
 
 
 
