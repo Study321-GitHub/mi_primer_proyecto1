@@ -4,8 +4,6 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 # Create your views here.
 
-def notas(request):
-    return render(request, 'notas.html')
 
 def anadir(request):
     prioridad = request.POST["name_prioridad"]
@@ -20,13 +18,23 @@ def anadir(request):
          print("notas insertadas", file=debug_file)
 
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO nota VALUES ('Alta','Idiomes','7');")
-    conn.commit()
-    return (HttpResponse(f'Insertado <br>'
-                        f'prioridad: {prioridad}<br>'
-                         f'titulo: {titulo}<br>'
-                         f'nota: {nota}<br>'))
+    cursor.execute(f"INSERT INTO nota VALUES ('{prioridad}','{titulo}','{nota}');")
 
-def finish
+    conn.commit()
+
+    return redirect('notas')
+
+def notas(request):
+    conn = psycopg2.connect(dbname="capitulo_6_db",
+                            user="capitulo_6_user",
+                            password="magda321")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM nota;")
+    result = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    params = {'nota': result}
+    return render(request, 'notas.html',params)
+
 
 
