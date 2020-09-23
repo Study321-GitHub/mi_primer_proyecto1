@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse
@@ -24,17 +25,21 @@ def anadir(request):
 
     return redirect('notas')
 
+#en ex. vista_principal
+
 def notas(request):
     conn = psycopg2.connect(dbname="capitulo_6_db",
                             user="capitulo_6_user",
                             password="magda321")
-    cursor = conn.cursor()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cursor.execute("SELECT * FROM nota;")
-    result = cursor.fetchone()
+    conn.commit()
+    result = cursor.fetchall()
     cursor.close()
     conn.close()
-    params = {'nota': result}
+    params = {'notas': result}
     return render(request, 'notas.html',params)
+
 
 
 
