@@ -33,7 +33,7 @@ def notas(request):
                             password="magda321")
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cursor.execute("SELECT * FROM nota;")
-    conn.commit()
+    #conn.commit() no es necesari en aquest cas; commit=guardar
     result = cursor.fetchall()
     cursor.close()
     conn.close()
