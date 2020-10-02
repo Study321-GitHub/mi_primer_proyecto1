@@ -3,7 +3,6 @@ import psycopg2.extras
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse
-# Create your views here.
 
 
 def anadir(request):
@@ -26,7 +25,6 @@ def anadir(request):
     return redirect('notas')
 
 #en ex. vista_principal
-
 def notas(request):
     conn = psycopg2.connect(dbname="capitulo_6_db",
                             user="capitulo_6_user",
@@ -37,6 +35,7 @@ def notas(request):
     result = cursor.fetchall()
     cursor.close()
     conn.close()
+    prioridad = request.GET['get_prioridad']
     params = {'notas': result}
     return render(request, 'notas.html',params)
 

@@ -2,28 +2,38 @@
     <head>
         <title>Notas</title>
     </head>
-
     <body>
 
     <h1>Notas</h1>
+    <br>
 
-        {% for nota in notas %}
+    <form method="GET" action="{% url 'home' %}">
+       <label for="id_prioridad">Prioridad:</label>
+        <select id="id_prioridad" name="get_prioridad">
+            <option value="alta">Alta</option>
+            <option value="normal">Normal</option>
+            <option value="baja">Baja</option>
+        </select>
+        <input type="submit" value="filtrar">
+    </form>
+
+      {% for nota in notas %}
             <fieldset>
                 <legend>
                     {{ nota.prioridad }} - {{ nota.titulo }}
                 </legend>
                 {{nota.contenido}} <br>
             </fieldset>
-        {% endfor %}
-    <br>
+      {% endfor %}<br>
+
     <form method="POST" action="/anadir">
         <label for="id_prioridad">Prioridad:</label>
-        <select id="id_prioridad" name="name_prioridad">
-                <option value="alta">Alta</option>
-                <option value="normal">Normal</option>
-                <option value="baja">Baja</option>
-        </select>
-        <br>
+        <select id="id_prioridad1" name="name_prioridad">
+            <option value="alta">alta</option>
+            <option value="normal">normal</option>
+            <option value="baja">baja</option>
+        </select><br>
+    <br>
         <input type="text" name="nom_titulo" placeholder="titulo" size="27"><br>
         <textarea name="name_nota" id="id_new_item" cols="40" rows="5" placeholder="Escribe tu nota aquí"></textarea>
         <br>
@@ -32,5 +42,4 @@
     </form>
 
     </body>
-
 </html>
