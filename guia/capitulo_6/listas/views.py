@@ -2,7 +2,7 @@ import psycopg2
 import psycopg2.extras
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.http import HttpResponse
+#from django.http import HttpResponse
 
 
 def anadir(request):
@@ -31,11 +31,11 @@ def notas(request):
                             password="magda321")
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cursor.execute("SELECT * FROM nota;")
-    #conn.commit() no es necesari en aquest cas; commit=guardar
     result = cursor.fetchall()
+  # conn.commit() no es necesari en aquest cas; commit=guardar
     cursor.close()
     conn.close()
-    prioridad = request.GET['get_prioridad']
+    prioridad = request.GET('get_prioridad', default=None)
     params = {'notas': result}
     return render(request, 'notas.html',params)
 

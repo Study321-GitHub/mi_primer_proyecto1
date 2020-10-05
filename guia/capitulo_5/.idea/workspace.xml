@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93730eef-bcf7-4427-be63-d17bda2e70bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../capitulo_6/listas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../capitulo_6/listas/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1iT3SqiqiWghu3RGlnRdEK5VHbn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../capitulo_6" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93730eef-bcf7-4427-be63-d17bda2e70bc" name="Default Changelist" comment="" />
+      <created>1601917757054</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601917757054</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="315" y="259" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601917786407">
+      <screen x="70" y="27" width="1850" height="948" />
+    </state>
+    <state x="315" y="259" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.948@70.27.1850.948" timestamp="1601917786407" />
+  </component>
+</project>
