@@ -29,11 +29,18 @@ def notas(request):
     conn = psycopg2.connect(dbname="capitulo_6_db",
                             user="capitulo_6_user",
                             password="magda321")
+
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
     prioridad = request.GET.get('get_prioridad', default='%')
     if prioridad == 'todas':
         prioridad = '%'
+
+    with open("debug.log", "w") as debug_file:
+         print(f"SELECT * FROM notas WHERE prioridad LIKE '{prioridad}';",
+               file=debug_file)
+
+
     cursor.execute(F"SELECT * FROM notas WHERE prioridad LIKE '{prioridad}';")
 
     result = cursor.fetchall()
