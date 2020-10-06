@@ -18,11 +18,11 @@ def anadir(request):
          print("notas insertadas", file=debug_file)
 
     cursor = conn.cursor()
-    cursor.execute(f"INSERT INTO nota VALUES ('{prioridad}','{titulo}','{nota}');")
+    cursor.execute(f"INSERT INTO notas VALUES ('{prioridad}','{titulo}','{nota}');")
 
     conn.commit()
 
-    return redirect('notas')
+    return redirect('home')
 
 #en ex. vista_principal
 def notas(request):
@@ -30,12 +30,16 @@ def notas(request):
                             user="capitulo_6_user",
                             password="magda321")
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cursor.execute("SELECT * FROM nota;")
+
+    prioridad = request.GET.get('get_prioridad', default='%')
+    if prioridad == 'todas':
+        prioridad = '%'
+    cursor.execute(F"SELECT * FROM notas WHERE prioridad LIKE '{prioridad}';")
+
     result = cursor.fetchall()
   # conn.commit() no es necesari en aquest cas; commit=guardar
     cursor.close()
     conn.close()
-    prioridad = request.GET('get_prioridad', default=None)
     params = {'notas': result}
     return render(request, 'notas.html',params)
 

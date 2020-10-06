@@ -20,7 +20,7 @@ from listas import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('notas/', views.notas,name='home'),
-    path('anadir/', views.anadir, name='anadir')
+    path('anadir/', views.anadir)
 ]
 
 

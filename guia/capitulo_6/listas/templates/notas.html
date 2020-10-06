@@ -13,6 +13,7 @@
             <option value="alta">Alta</option>
             <option value="normal">Normal</option>
             <option value="baja">Baja</option>
+            <option value="todas">Todas</option>
         </select>
         <input type="submit" value="filtrar">
     </form>
@@ -26,12 +27,13 @@
             </fieldset>
       {% endfor %}<br>
 
-    <form method="POST" action="/anadir">
+    <form method="POST" action="/anadir/">
         <label for="id_prioridad">Prioridad:</label>
         <select id="id_prioridad1" name="name_prioridad">
+            <option value="baja">baja</option>
             <option value="alta">alta</option>
             <option value="normal">normal</option>
-            <option value="baja">baja</option>
+
         </select><br>
     <br>
         <input type="text" name="nom_titulo" placeholder="titulo" size="27"><br>
